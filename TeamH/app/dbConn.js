@@ -23,3 +23,8 @@ exports.getEmps = async () => {
 	console.log(data)
 	return data
 }
+
+exports.newEmp = async (newEmp) => {
+	let results = await db.query('INSERT INTO Employee SET ?', newEmp)
+	return results.insertId
+}
