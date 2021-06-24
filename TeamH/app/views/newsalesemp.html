@@ -1,0 +1,45 @@
+{% extends "layout_unbranded.html" %}
+{% block pageTitle %} Add a New Sales Employee
+{%endblock %}
+{% block content %}
+	<h1>Add New Sales Employee</h1>
+
+	{% if errormessage %}
+		<div class="govuk-error-message">{{ errormessage }}</div>
+	{% endif %}
+
+	{% if salesempadded %}
+		<p>Sales employee has been added</p>
+	{% endif %}
+
+	{% if emps and emps.length > 0 %}
+		{% set emprows = [] %}
+		{% for emp in emps %}
+			{% set emprows = (emprows.push([
+				{
+					text: emp.ID
+				}, {
+					text: emp.Name
+				}
+			]), emprows) %}
+		{% endfor %}
+		{{govukTable({ head: [ { text: 'ID'}, {text: 'Name'} ], rows:
+emprows }) }}
+	{% else %} There are no employees. {% endif %}
+
+	<form action="newsalesemp" method="POST">
+		{{ govukInput({ label: { text: "Employee ID", classes:
+	"govuk-label--l", isPageHeading: true }, id:
+	"emp_id", name: "emp_id" }) }}
+		{{ govukInput({ label: { text: "Commission Rate:", classes: "govuk-label--l", isPageHeading: true },
+	 id: "commission_rate", name: "commission_rate" }) }}
+		{{ govukInput({
+	label: { text: "Total Sales", classes: "govuk-label--l",
+	isPageHeading: true },  id: "total_sales_value", name: "total_sales_value" }) }}
+
+		<button type="submit" class="govuk-button" data-module="govuk-button">
+		Accept and send
+	</button>
+	</form>
+
+{% endblock %}
