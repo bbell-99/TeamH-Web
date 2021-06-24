@@ -63,3 +63,11 @@ exports.getEmpHighestSales = async() => {
     console.log(data)
     return data
 }
+
+exports.getNonSalesEmps = async() => {
+    const data = await db.query(
+        'SELECT emp_id AS `ID`, emp_name AS `Name` FROM Employee WHERE emp_id NOT IN (SELECT emp_id FROM Sales_Employee)'
+    )
+    console.log(data)
+    return data
+}

@@ -48,19 +48,19 @@ router.post("/newsalesemp", async(req, res) => {
     const emp = req.body;
     console.log(emp);
     if (emp.commission_rate.search(/^\d*\.?\d*$/)) {
-        res.render("newsalesemp", { emps: await dbConn.getEmps(), errormessage: "Commission rate must be numerical" });
+        res.render("newsalesemp", { emps: await dbConn.getNonSalesEmps(), errormessage: "Commission rate must be numerical" });
     } else if (emp.total_sales_value.search(/^\d*\.?\d*$/)) {
-        res.render("newsalesemp", { emps: await dbConn.getEmps(), errormessage: "Total sales must be numerical" });
+        res.render("newsalesemp", { emps: await dbConn.getNonSalesEmps(), errormessage: "Total sales must be numerical" });
     } else {
         let insertedKey = await dbConn.newSalesEmp(emp);
-        res.render("newsalesemp", { emps: await dbConn.getEmps(), salesempadded: "Sales employee added" });
+        res.render("newsalesemp", { emps: await dbConn.getNonSalesEmps(), salesempadded: "Sales employee added" });
     }
 });
 
 router.get("/newsalesemp", async(req, res) => {
     const emp = req.body;
     console.log(emp);
-    res.render("newsalesemp", { emps: await dbConn.getEmps() });
+    res.render("newsalesemp", { emps: await dbConn.getNonSalesEmps() });
 });
 
 router.get('/grosspay', async(req, res) => {
