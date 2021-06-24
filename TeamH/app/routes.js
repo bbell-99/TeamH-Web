@@ -63,4 +63,10 @@ router.get("/newsalesemp", async(req, res) => {
     res.render("newsalesemp", { emps: await dbConn.getEmps() });
 });
 
+router.get('/grosspay', async(req, res) => {
+    res.render('grosspay', {
+        empsgrosspay: await dbConn.getEmpGrossPay()
+    })
+})
+
 module.exports = router

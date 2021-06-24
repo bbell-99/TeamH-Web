@@ -49,3 +49,10 @@ exports.newSalesEmp = async(newEmp) => {
     let results = await db.query('INSERT INTO Sales_Employee SET ?', newEmp)
     return results.insertId
 }
+
+exports.getEmpGrossPay = async() => {
+    const data = await db.query(
+        'SELECT emp_id AS `ID`, emp_name AS `Name`, gross_pay AS `GrossPay` FROM `Gross Pay` Order By emp_id;')
+    console.log(data)
+    return data
+}

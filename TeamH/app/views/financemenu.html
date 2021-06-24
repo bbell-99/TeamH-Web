@@ -5,4 +5,9 @@
     {% from "govuk/components/button/macro.njk" import govukButton %}
 
     
+<form class="form" action="/grosspay" method="GET">
+    {{ govukButton({
+  text: "Employee Gross Pay"
+}) }}
+</form>
 {% endblock %}
