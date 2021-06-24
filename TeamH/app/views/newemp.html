@@ -1,6 +1,6 @@
 {% extends "layout_unbranded.html" %} {% block pageTitle %} Add a New Employee
 {%endblock %} {% block content %} {% if errormessage %}
-<div>{{ errormessage | json }}</div>
+
 <div class="govuk-error-message">{{ errormessage }}</div>
 {% endif %}
 
@@ -20,6 +20,7 @@
 	label: { text: "What is the Salary of the Employee??", classes:
 	"govuk-label--l", isPageHeading: true },value: data["salary"], id: "salary",
 	name: "salary" }) }}
+
 	<button type="submit" class="govuk-button" data-module="govuk-button">
 		Accept and send
 	</button>
