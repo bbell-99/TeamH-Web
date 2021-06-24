@@ -1,0 +1,8 @@
+{% extends "layout_unbranded.html" %}
+{% block pageTitle %} Finance Menu {% endblock %}
+{%block content%}
+    <h1>Finance Menu</h1>
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    {{ request.url }}
+{% endblock %}

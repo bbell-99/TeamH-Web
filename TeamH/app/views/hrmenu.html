@@ -1,0 +1,19 @@
+{% extends "layout_unbranded.html" %}
+{% block pageTitle %} HR Menu {% endblock %}
+{%block content%}
+    <h1>HR Menu</h1>
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    <form class="form" action="newemp" method="GET">
+        {{ govukButton({
+  text: "Add New Employee"
+}) }}
+    </form>
+    <form class="form" action="" method="GET">
+        {{ govukButton({
+  text: "View Employees by Department"
+}) }}
+    </form>
+
+    {{ request.url }}
+{% endblock %}
