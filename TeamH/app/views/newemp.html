@@ -4,30 +4,34 @@
 <div class="govuk-error-message">{{ errormessage }}</div>
 {% endif %}
 
-<form action="newemp" method="POST">
-	{{ govukInput({ label: { text: "What is the Name of the Employee?", classes:
-	"govuk-label--l", isPageHeading: true }, value: data["emp_name"], id:
-	"emp_name", name: "emp_name" }) }} {{ govukInput({ label: { text: "What is the
-	Address of the Employee?", classes: "govuk-label--l", isPageHeading: true },
-	value: data["address"], id: "address", name: "address" }) }} {{ govukInput({
-	label: { text: "What is the NIN of the Employee?", classes: "govuk-label--l",
-	isPageHeading: true }, value: data["nin"], id: "nin", name: "nin" }) }} {{
-	govukInput({ label: { text: "What is the BAN of the Employee??", classes:
-	"govuk-label--l", isPageHeading: true },value: data["ban"], id: "ban", name:
-	"ban" }) }} {{ govukInput({ label: { text: "What is the Sortcode of the
-	Employee??", classes: "govuk-label--l", isPageHeading: true },value:
-	data["sortcode"], id: "sortcode", name: "sortcode" }) }} {{ govukInput({
-	label: { text: "What is the Salary of the Employee??", classes:
-	"govuk-label--l", isPageHeading: true },value: data["salary"], id: "salary",
-	name: "salary" }) }}
+<h1 style="font-family: Arial, Helvetica, sans-serif">
+	Add a new Employee
+	<h1>
+		<form action="newemp" method="POST">
+			{{ govukInput({ label: { text: "What is the Name of the Employee?",
+			classes: "govuk-label--l", isPageHeading: true }, value: data["emp_name"],
+			id: "emp_name", name: "emp_name" }) }} {{ govukInput({ label: { text:
+			"What is the Address of the Employee?", classes: "govuk-label--l",
+			isPageHeading: true }, value: data["address"], id: "address", name:
+			"address" }) }} {{ govukInput({ label: { text: "What is the NIN of the
+			Employee?", classes: "govuk-label--l", isPageHeading: true }, value:
+			data["nin"], id: "nin", name: "nin" }) }} {{ govukInput({ label: { text:
+			"What is the BAN of the Employee??", classes: "govuk-label--l",
+			isPageHeading: true },value: data["ban"], id: "ban", name: "ban" }) }} {{
+			govukInput({ label: { text: "What is the Sortcode of the Employee??",
+			classes: "govuk-label--l", isPageHeading: true },value: data["sortcode"],
+			id: "sortcode", name: "sortcode" }) }} {{ govukInput({ label: { text:
+			"What is the Salary of the Employee??", classes: "govuk-label--l",
+			isPageHeading: true },value: data["salary"], id: "salary", name: "salary"
+			}) }}
 
-	<button type="submit" class="govuk-button" data-module="govuk-button">
-		Accept and send
-	</button>
-</form>
-<form class="form" action="/hrmenu.html" method="GET">
-    {{ govukButton({
-  text: "Home"
-}) }}
-</form>
-{% endblock %}
+			<button type="submit" class="govuk-button" data-module="govuk-button">
+				Accept and send
+			</button>
+		</form>
+		<form class="form" action="/hrmenu.html" method="GET">
+			{{ govukButton({ text: "Home" }) }}
+		</form>
+		{% endblock %}
+	</h1>
+</h1>
