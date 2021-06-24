@@ -1,13 +1,21 @@
-{% extends "layout_unbranded.html" %} {% block pageTitle %} HR Menu {% endblock
-%} {%block content%}
-<h1>HR Menu</h1>
-{% from "govuk/components/button/macro.njk" import govukButton %}
+{% extends "layout_unbranded.html" %}
+{% block pageTitle %} HR Menu {% endblock %}
+{%block content%}
+    <h1>HR Menu</h1>
+    {% from "govuk/components/button/macro.njk" import govukButton %}
 
-<form class="form" action="newemp" method="GET">
-	{{ govukButton({ text: "Add New Employee" }) }}
+    <form class="form" action="newemp" method="GET">
+        {{ govukButton({ text: "Add New Employee" }) }}
+    </form>
+    <form class="form" action="empdepartment" method="GET">
+        {{ govukButton({ text: "View Employees by Department" }) }}
+    </form>
 </form>
-<form class="form" action="empdepartment" method="GET">
-	{{ govukButton({ text: "View Employees by Department" }) }}
+<form class="form" action="/newsalesemp" method="GET">
+    {{ govukButton({
+  text: "Add Sales Employee"
+}) }}
 </form>
 
-{{ request.url }} {% endblock %}
+{{ request.url }}
+{% endblock %}
