@@ -1,0 +1,25 @@
+{% extends "layout_unbranded.html" %} {% block pageTitle %} Emps {% endblock %}
+{%block content%}
+
+<h2>List of Sales Employees</h2>
+{% if salesemps and salesemps.length > 0 %} {% set salesemprows = [] %} {% for
+salesemp in salesemps %} {% set salesemprows = (salesemprows.push([{ text:
+salesemp.ID}, {text: salesemp.Name }, {text: salesemp.Address}, {text:
+salesemp.NIN}, {text:salesemp.BAN}, {text:salesemp.Sortcode}, {text:
+salesemp.Salary}, {text: salesemp.CommissionRate}, {text:
+salesemp.TotalSalesValues} ]), salesemprows) %} {% endfor %} {{govukTable({
+head: [ { text: 'ID'}, {text: 'Name'}, {text: 'Address'}, {text: 'NIN'}, {text:
+'BAN'}, {text: 'Sortcode'}, {text: 'Salary'}, {text: 'Comission Rate'}, {text:
+'Total Sales Value'}], rows: salesemprows }) }} {% else %} There are no
+employees. {% endif %}
+
+<h2>List of Technical Employees</h2>
+{% if techemps and techemps.length > 0 %} {% set techemprows = [] %} {% for
+techemp in techemps %} {% set stechemprows = (techemprows.push([{ text:
+techemp.ID}, {text: techemp.Name }, {text: techemp.Address}, {text:
+techemp.NIN}, {text:techemp.BAN}, {text:techemp.Sortcode}, {text:
+techemp.Salary}, {text: techemp.cv}, {text: techemp.photo} ]), salesemprows) %}
+{% endfor %} {{govukTable({ head: [ { text: 'ID'}, {text: 'Name'}, {text:
+'Address'}, {text: 'NIN'}, {text: 'BAN'}, {text: 'Sortcode'}, {text: 'Salary'},
+{text: 'CV'}, {text: 'Photo'}], rows: techemprows }) }} {% else %} There are no
+employees. {% endif %} {% endblock %}

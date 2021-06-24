@@ -12,6 +12,13 @@ router.get('/newemp', async (req, res) => {
 	res.render('newemp')
 })
 
+router.get('/empdepartment', async (req, res) => {
+	res.render('empdepartment', {
+		salesemps: await dbConn.getSalesEmps(),
+		techemps: await dbConn.getTechEmps(),
+	})
+})
+
 router.post('/newemp', async (req, res) => {
 	const emp = req.body
 	console.log(emp)

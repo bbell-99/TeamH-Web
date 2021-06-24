@@ -24,6 +24,22 @@ exports.getEmps = async () => {
 	return data
 }
 
+exports.getSalesEmps = async () => {
+	const data = await db.query(
+		'SELECT s.emp_id AS `ID`, e.emp_name AS `Name`, e.address AS `Address`, e.nin as `NIN`, e.ban AS `BAN`, e.sortcode AS `Sortcode`, e.Salary AS `Salary`, s.commission_rate as `CommissionRate`, s.total_sales_value AS `TotalSalesValues` FROM Sales_Employee s JOIN Employee e WHERE s.emp_id = e.emp_id'
+	)
+	console.log(data)
+	return data
+}
+
+exports.getTechEmps = async () => {
+	const data = await db.query(
+		'SELECT t.emp_id AS `ID`, e.emp_name AS `Name`, e.address AS `Address`, e.nin as `NIN`, e.ban AS `BAN`, e.sortcode AS `Sortcode`, e.Salary AS `Salary`, t.cv, t.photo FROM Technical_Employee t JOIN Employee e WHERE t.emp_id = e.emp_id'
+	)
+	console.log(data)
+	return data
+}
+
 exports.newEmp = async (newEmp) => {
 	let results = await db.query('INSERT INTO Employee SET ?', newEmp)
 	return results.insertId
