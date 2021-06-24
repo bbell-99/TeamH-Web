@@ -1,0 +1,22 @@
+{% extends "layout_unbranded.html" %}
+{% block pageTitle %} Highest Sales {% endblock %}
+{%block content%}
+
+    <h2>Highest Sales</h2>
+
+    {% if highestsalesemp and highestsalesemp.length > 0 %}
+        <p>Employee with the highest sales total: </p>
+        {% set emprows = [] %}
+        {% for emp in highestsalesemp %}
+            {% set emprows = (emprows.push([
+                {
+                    text: emp.Name
+                }, {
+                    text: emp.TotalSales
+                }
+            ]), emprows) %}
+        {% endfor %}
+        {{govukTable({ head: [ { text: 'Name'}, {text: 'TotalSales'} ], rows:
+emprows }) }}
+    {% else %} There are no employees. {% endif %}
+{% endblock %}

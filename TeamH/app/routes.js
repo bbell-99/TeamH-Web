@@ -69,4 +69,10 @@ router.get('/grosspay', async(req, res) => {
     })
 })
 
+router.get('/highestsales', async(req, res) => {
+    res.render('highestsales', {
+        highestsalesemp: await dbConn.getEmpHighestSales()
+    })
+})
+
 module.exports = router

@@ -56,3 +56,10 @@ exports.getEmpGrossPay = async() => {
     console.log(data)
     return data
 }
+
+exports.getEmpHighestSales = async() => {
+    const data = await db.query(
+        'SELECT emp_name AS `Name`, total_sales_value AS `TotalSales` FROM `Highest Sales`;')
+    console.log(data)
+    return data
+}

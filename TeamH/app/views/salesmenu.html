@@ -1,0 +1,13 @@
+{% extends "layout_unbranded.html" %}
+{% block pageTitle %} Sales Manager Menu {% endblock %}
+{%block content%}
+    <h1>Finance Menu</h1>
+    {% from "govuk/components/button/macro.njk" import govukButton %}
+
+    
+<form class="form" action="/highestsales" method="GET">
+    {{ govukButton({
+  text: "Highest Sales Employee"
+}) }}
+</form>
+{% endblock %}
