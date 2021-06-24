@@ -22,4 +22,10 @@ techemp.Salary}, {text: techemp.cv}, {text: techemp.photo} ]), salesemprows) %}
 {% endfor %} {{govukTable({ head: [ { text: 'ID'}, {text: 'Name'}, {text:
 'Address'}, {text: 'National Insurance Number'}, {text: 'Bank Account Number'},
 {text: 'Sortcode'}, {text: 'Salary'}, {text: 'CV'}, {text: 'Photo'}], rows:
-techemprows }) }} {% else %} There are no employees. {% endif %} {% endblock %}
+techemprows }) }} {% else %} There are no employees. {% endif %} 
+
+<form class="form" action="/hrmenu.html" method="GET">
+    {{ govukButton({
+  text: "Home"
+}) }}
+</form>{% endblock %}

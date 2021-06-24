@@ -21,4 +21,10 @@
 head: [ { text: 'ID'}, {text: 'Name'}, {text: 'Gross Pay'}], rows:
 emprows }) }}
     {% else %} There are no employees. {% endif %}
+
+<form class="form" action="/financemenu.html" method="GET">
+    {{ govukButton({
+  text: "Home"
+}) }}
+</form>
 {% endblock %}

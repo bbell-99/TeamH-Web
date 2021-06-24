@@ -5,4 +5,12 @@
 {% if emps and emps.length > 0 %} {% set emprows = [] %} {% for emp in emps %}
 {% set emprows = (emprows.push([{ text: emp.ID}, {text: emp.Name } ]), emprows)
 %} {% endfor %} {{govukTable({ head: [ { text: 'ID'}, {text: 'Name'} ], rows:
-emprows }) }} {% else %} There are no employees. {% endif %} {% endblock %}
+emprows }) }} {% else %} There are no employees. {% endif %} 
+
+
+<form class="form" action="/hrmenu.html" method="GET">
+    {{ govukButton({
+  text: "Home"
+}) }}
+</form>
+{% endblock %}

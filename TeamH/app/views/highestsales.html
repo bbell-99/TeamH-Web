@@ -19,4 +19,11 @@
         {{govukTable({ head: [ { text: 'Name'}, {text: 'TotalSales'} ], rows:
 emprows }) }}
     {% else %} There are no employees. {% endif %}
+
+
+<form class="form" action="/salesmenu.html" method="GET">
+    {{ govukButton({
+  text: "Home"
+}) }}
+</form>
 {% endblock %}
