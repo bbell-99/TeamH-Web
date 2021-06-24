@@ -1,0 +1,8 @@
+{% extends "layout_unbranded.html" %} {% block pageTitle %} Emps {% endblock %}
+{%block content%}
+
+<h2>List of Employees</h2>
+{% if emps and emps.length > 0 %} {% set emprows = [] %} {% for emp in emps %}
+{% set emprows = (emprows.push([{ text: emp.ID}, {text: emp.Name } ]), emprows)
+%} {% endfor %} {{govukTable({ head: [ { text: 'ID'}, {text: 'Name'} ], rows:
+emprows }) }} {% else %} There are no employees. {% endif %} {% endblock %}
